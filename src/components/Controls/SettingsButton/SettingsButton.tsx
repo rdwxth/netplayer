@@ -11,6 +11,7 @@ import AudioMenu from './AudioMenu';
 import PlaybackSpeedMenu from './PlaybackSpeedMenu';
 import QualityMenu from './QualityMenu';
 import SubtitleMenu from './SubtitleMenu';
+import ServerSwitcherMenu from './ServerSelectMenu';
 
 const Menu = React.memo(() => (
   <NestedMenu
@@ -22,6 +23,7 @@ const Menu = React.memo(() => (
       padding: isMobile ? '1rem' : '0.5rem',
     }}
   >
+    <ServerSwitcherMenu/>
     <PlaybackSpeedMenu />
     <QualityMenu />
     <SubtitleMenu />

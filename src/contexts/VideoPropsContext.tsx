@@ -47,6 +47,7 @@ interface I18nSettings extends I18nField {
   tooLate: string;
   uploadSubtitle: string;
   mySubtitle: string;
+  serverSwitcher: string;
 }
 
 type I18nField = { [k: string]: string | I18nField };
@@ -123,6 +124,7 @@ const defaultI18n: I18n = {
     tooLate: 'Use this if subtitles are shown {{miliseconds}} ms too late',
     uploadSubtitle: 'Upload Subtitle',
     mySubtitle: 'My subtitle',
+    serverSwitcher: 'Servers'
   },
 };
 
