@@ -13,6 +13,8 @@ import SettingsButton from './SettingsButton';
 import SubtitleButton from './SubtitleButton';
 import TimeIndicator from './TimeIndicator';
 import VolumeButton from './VolumeButton';
+import DownloadButton from './DownloadButton';
+import EpisodesButton from './EpisodesButton';
 
 const Controls = () => {
   const { isInteracting } = useInteract();
@@ -39,8 +41,8 @@ const Controls = () => {
           <TimeIndicator />
         </div>
         <div className={styles.rightButtonContainer}>
-          <ScreenshotButton />
-          <SubtitleButton />
+          <DownloadButton />
+          <EpisodesButton />
           <SettingsButton />
           <FullscreenButton />
         </div>

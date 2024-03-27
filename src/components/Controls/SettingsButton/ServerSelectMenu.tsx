@@ -3,7 +3,6 @@ import { useVideo } from '../../../contexts/VideoContext';
 import { useVideoProps } from '../../../contexts/VideoPropsContext';
 import ServerIcon from '../../icons/ServerIcon';
 import NestedMenu from '../../NestedMenu';
-
 const servers = [
   "English",
   "German",
@@ -17,10 +16,16 @@ const servers = [
 const ServerSwitcherMenu = () => {
 const { i18n } = useVideoProps();
 const currentServer = 'Server'; // Implement logic to get the current server
-const handleChangeServer = (value: string) => {
-    // Implement logic to switch servers
-    console.log('Switching to server:', value);
+const handleChangeServer = (serverName: string) => {
+  const serverIndex = servers.indexOf(serverName);
+  if (serverIndex !== -1) {
+    const newUrl = new URL(window.location.href);
+    newUrl.searchParams.set('server', String(serverIndex + 1));
+    window.location.href = newUrl.toString();
+  }
 };
+
+
 
   return (
     <NestedMenu.SubMenu
@@ -43,3 +48,7 @@ const handleChangeServer = (value: string) => {
 };
 
 export default React.memo(ServerSwitcherMenu);
+function useNavigation() {
+  throw new Error('Function not implemented.');
+}
+

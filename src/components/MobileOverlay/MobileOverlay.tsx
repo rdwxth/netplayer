@@ -7,7 +7,8 @@ import BackwardButton from '../Controls/BackwardButton';
 import ForwardButton from '../Controls/ForwardButton';
 import MobileVolumeSlider from '../Controls/MobileVolumeSlider';
 import PlayPauseButton from '../Controls/PlayPauseButton';
-import ScreenshotButton from '../Controls/ScreenshotButton';
+import DownloadButton from '../Controls/DownloadButton';
+import EpisodesButton from '../Controls/EpisodesButton';
 import SettingsButton from '../Controls/SettingsButton';
 import SliderIcon from '../icons/SliderIcon';
 import TextIcon from '../TextIcon';
@@ -70,7 +71,8 @@ const MobileOverlay = () => {
           </div>
         </div>
         <div className={styles.mobileTopButtons}>
-          <ScreenshotButton />
+          <DownloadButton />
+          <EpisodesButton />
           <SettingsButton />
         </div>
       </div>

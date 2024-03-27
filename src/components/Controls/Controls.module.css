@@ -10,14 +10,18 @@
   transition: 300ms;
   opacity: 1;
   visibility: visible;
+  border-radius: 8px; /* Add border radius for modern and clean look */
 }
+
 .container.hide {
   opacity: 0;
   visibility: hidden;
 }
+
 .sliderContainer {
   margin-bottom: 1rem;
 }
+
 .buttonContainer {
   width: 100%;
   display: flex;
@@ -25,21 +29,26 @@
   align-items: center;
   color: white;
 }
+
 .leftButtonContainer {
   display: flex;
   align-items: center;
 }
+
 .rightButtonContainer {
   display: flex;
   align-items: center;
 }
+
 .leftButtonContainer > * + * {
   margin-left: 1rem;
 }
+
 .rightButtonContainer > * + * {
   margin-left: 1rem;
 }
+
 .container :global(.control-button) {
-  width: 2rem;
-  height: 2rem;
+  width: 1.6rem;
+  height: 1.6rem;
 }

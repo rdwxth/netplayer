@@ -80,6 +80,7 @@ export interface NetPlayerProps extends PlayerProps {
   hotkeys?: HotKey[];
   subtitles?: Subtitle[];
   components?: Partial<Components>;
+  metadata?: Record<string, any>;
   defaultVideoState?: Pick<
     VideoState,
     'currentAudio' | 'currentQuality' | 'currentSubtitle' | 'isSubtitleDisabled'

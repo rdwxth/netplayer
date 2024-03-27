@@ -7,11 +7,12 @@ import { VideoStateContextProvider } from './VideoStateContext';
 const GlobalContext: React.FC<NetPlayerProps> = ({
   sources,
   subtitles = [],
+  metadata={},
   children,
   ...props
 }) => {
   return (
-    <VideoPropsProvider sources={sources} subtitles={subtitles} {...props}>
+    <VideoPropsProvider sources={sources} subtitles={subtitles} metadata={metadata} {...props}>
       <VideoStateContextProvider>
         <VideoInteractingContextProvider>
           <SubtitleSettingsProvider>{children}</SubtitleSettingsProvider>

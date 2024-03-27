@@ -125,9 +125,10 @@ const DefaultUI = React.forwardRef<HTMLVideoElement, NetPlayerProps>(
       >
         <uiComponents.MobileBackwardIndicator ref={backIndicatorRef} />
         <uiComponents.MobileForwardIndicator ref={forwardIndicatorRef} />
-        <uiComponents.Subtitle />
+        
         <div className={styles.playerContainer}>
           <uiComponents.Player ref={playerRef} hlsRef={hlsRef} {...props} />
+          <uiComponents.Subtitle />
         </div>
         <div className={styles.overlayContainer}>
           {isMobile ? <uiComponents.MobileOverlay /> : <uiComponents.Overlay />}
