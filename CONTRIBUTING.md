@@ -5,7 +5,7 @@ Thanks for contributing to NetPlayer!
 ## Install
 
 ```bash
-git clone https://github.com/hoangvu12/netplayer.git
+git clone https://github.com/rdwxth/netplayer.git
 cd netplayer
 npm install # or yarn
 npm start # or yarn start

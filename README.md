@@ -43,7 +43,7 @@ import NetPlayer from 'netplayer';
 />;
 ```
 
-Or [play](https://hoangvu12.github.io/netplayer/) around with this component
+Or [play](https://rdwxth.github.io/netplayer/) around with this component
 
 ## Props
 
@@ -51,8 +51,8 @@ NetPlayer accepts video element props and these specific props
 
 | Prop              | Type                                                                                                   | Description                                                 | Default                                                                                                         | Required |
 | ----------------- | ------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- | -------- |
-| `sources`         | [Source](https://github.com/hoangvu12/netplayer/blob/main/src/types/types.ts#L1)[]                     | An array of sources contain `file`, `label` and `type`      | `null`                                                                                                          | `true`   |
-| `subtitles`       | [Subtitle](https://github.com/hoangvu12/netplayer/blob/main/src/types/types.ts#L6)[]                   | An array of subtitles contain `file`, `lang` and `language` | `null`                                                                                                          | `false`  |
+| `sources`         | [Source](https://github.com/rdwxth/netplayer/blob/main/src/types/types.ts#L1)[]                     | An array of sources contain `file`, `label` and `type`      | `null`                                                                                                          | `true`   |
+| `subtitles`       | [Subtitle](https://github.com/rdwxth/netplayer/blob/main/src/types/types.ts#L6)[]                   | An array of subtitles contain `file`, `lang` and `language` | `null`                                                                                                          | `false`  |
 | `hlsRef`          | `React.MutableRefObject<Hls \| null>`                                                                  | `hls.js` instance ref                                       | `React.createRef()`                                                                                             | `false`  |
 | `dashRef`         | `React.MutableRefObject<DashJS.MediaPlayerClass \| null>`                                              | `dashjs` instance ref                                       | `React.createRef()`                                                                                             | `false`  |
 | `hlsConfig`       | `Hls['config']`                                                                                        | `hls.js` config                                             | `{}`                                                                                                            | `false`  |
@@ -61,14 +61,14 @@ NetPlayer accepts video element props and these specific props
 | `onDashInit`      | `(dash: DashJS.MediaPlayerClass): void`                                                                | A function that called after dashjs initialization          | `() => null`                                                                                                    | `false`  |
 | `onInit`          | `(videoEl: HTMLVideoElement): void`                                                                    | A function that called after video initialization           | `() => null`                                                                                                    | `false`  |
 | `ref`             | `React.MutableRefObject<HTMLVideoElement \| null>`                                                     | `video` element ref                                         | `null`                                                                                                          | `false`  |
-| `i18n`            | [I18n](https://github.com/hoangvu12/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L41)        | Translations                                                | [Default Translations](https://github.com/hoangvu12/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L69) | `false`  |
-| `hotkeys`         | [Hotkey](https://github.com/hoangvu12/netplayer/blob/main/src/types/types.ts#L25)[]                    | Hotkeys (shortcuts)                                         | [Default Hotkeys](https://github.com/hoangvu12/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L99)      | `false`  |
-| `components`      | [Component](https://github.com/hoangvu12/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L99)[] | See [Customization](#customization)                         | [Default components](https://github.com/hoangvu12/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L46)   | `false`  |
+| `i18n`            | [I18n](https://github.com/rdwxth/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L41)        | Translations                                                | [Default Translations](https://github.com/rdwxth/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L69) | `false`  |
+| `hotkeys`         | [Hotkey](https://github.com/rdwxth/netplayer/blob/main/src/types/types.ts#L25)[]                    | Hotkeys (shortcuts)                                         | [Default Hotkeys](https://github.com/rdwxth/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L99)      | `false`  |
+| `components`      | [Component](https://github.com/rdwxth/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L99)[] | See [Customization](#customization)                         | [Default components](https://github.com/rdwxth/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L46)   | `false`  |
 | `thumbnail`       | string                                                                                                 | Thumbnails on progress bar hover                            | `null`                                                                                                          | `false`  |
 
 ## Customization
 
-You can customize the player by passing defined components with `components` props. See [defined components](https://github.com/hoangvu12/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L46)
+You can customize the player by passing defined components with `components` props. See [defined components](https://github.com/rdwxth/netplayer/blob/main/src/contexts/VideoPropsContext.tsx#L46)
 
 By passing components, the passed components will override default existing components. Allow you to customize the player how you want it to be.
 
@@ -93,11 +93,11 @@ import NetPlayer, { TimeIndicator } from 'netplayer';
 />;
 ```
 
-_Note: use built-in [hooks](https://github.com/hoangvu12/netplayer/tree/main/src/hooks) and [components](https://github.com/hoangvu12/netplayer/tree/main/src/components) for better customization_
+_Note: use built-in [hooks](https://github.com/rdwxth/netplayer/tree/main/src/hooks) and [components](https://github.com/rdwxth/netplayer/tree/main/src/components) for better customization_
 
 ### Override structure
 
-NetPlayer use this [default structure](https://github.com/hoangvu12/netplayer/blob/main/src/components/DefaultUI/DefaultUI.tsx)
+NetPlayer use this [default structure](https://github.com/rdwxth/netplayer/blob/main/src/components/DefaultUI/DefaultUI.tsx)
 
 To override it, simply pass your own structure as NetPlayer's `children`
 
@@ -132,7 +132,7 @@ NetPlayer supports all `video` element supported formats and `HLS` format
 
 ## Contributing
 
-See the [contribution guidelines](github.com/hoangvu12/netplayer/blob/main/CONTRIBUTING.md) before creating a pull request.
+See the [contribution guidelines](github.com/rdwxth/netplayer/blob/main/CONTRIBUTING.md) before creating a pull request.
 
 ## Other video players
 
