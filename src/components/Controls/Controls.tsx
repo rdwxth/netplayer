@@ -8,7 +8,6 @@ import ForwardButton from './ForwardButton';
 import FullscreenButton from './FullscreenButton';
 import PlayPauseButton from './PlayPauseButton';
 import ProgressSlider from './ProgressSlider';
-import ScreenshotButton from './ScreenshotButton';
 import SettingsButton from './SettingsButton';
 import SubtitleButton from './SubtitleButton';
 import TimeIndicator from './TimeIndicator';
@@ -43,6 +42,7 @@ const Controls = () => {
         <div className={styles.rightButtonContainer}>
           <DownloadButton />
           <EpisodesButton />
+          <SubtitleButton />
           <SettingsButton />
           <FullscreenButton />
         </div>
