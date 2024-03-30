@@ -7,7 +7,6 @@ import ServerIcon from '../icons/ServerIcon';
 import NestedMenu from '../NestedMenu';
 import Popover from '../Popover';
 import ControlButton from './ControlButton';
-import BackwardIcon from '../icons/BackwardIcon';
 
 const SeasonOption = ({ seasonNumber, onClick }: { seasonNumber: number, onClick: () => void }) => (
   <NestedMenu.Item
@@ -121,6 +120,7 @@ const EpisodesButton = () => {
 
   const handleSeasonClick = (seasonNumber: any) => {
     setSelectedSeason(seasonNumber);
+    console.log(selectedSeason);
     fetchEpisodes(seasonNumber);
   };
 
@@ -185,7 +185,3 @@ const EpisodesButton = () => {
 };
 
 export default EpisodesButton;
-function handleSwitch(): void {
-  throw new Error('Function not implemented.');
-}
-
