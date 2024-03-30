@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { isDesktop, isMobile } from 'react-device-detect';
 import { PLAYER_CONTAINER_CLASS } from '../../constants';
 import { useVideoProps } from '../../contexts/VideoPropsContext';
