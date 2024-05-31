@@ -1,5 +1,4 @@
 import React from 'react'; // Import React from 'react' instead of using '* as React'
-import { useVideo } from '../../../contexts/VideoContext';
 import { useVideoProps } from '../../../contexts/VideoPropsContext';
 import ServerIcon from '../../icons/ServerIcon';
 import NestedMenu from '../../NestedMenu';
@@ -48,7 +47,3 @@ const handleChangeServer = (serverName: string) => {
 };
 
 export default React.memo(ServerSwitcherMenu);
-function useNavigation() {
-  throw new Error('Function not implemented.');
-}
-
