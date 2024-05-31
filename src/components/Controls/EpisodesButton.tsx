@@ -94,9 +94,9 @@ const EpisodesButton = () => {
           const seasonData = await seasonResponse.json();
           setSeasons(seasonData.seasons);
         }
-      } catch (error: any) {
-        console.error('Error fetching seasons:', error);
-        setError(error.message);
+      } catch (error) {
+        console.error(error);
+        setError((error as any).message);
       }
     };
 
@@ -112,9 +112,9 @@ const EpisodesButton = () => {
       const episodeData = await episodeResponse.json();
       setEpisodes(episodeData.episodes);
       setShowEpisodes(true);
-    } catch (error: any) {
-      console.error('Error fetching episodes:', error);
-      setError(error.message);
+    } catch (error) {
+      console.error(error);
+      setError((error as any).message);
     }
   };
 
