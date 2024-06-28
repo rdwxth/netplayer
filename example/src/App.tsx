@@ -6,7 +6,7 @@ const App: React.FC = () => {
     <NetPlayer
       sources={[
           {
-            file: `https://j.pollllop.com/_v11/9d63e6f64090b701b78d116d38498e864bdfe09b00585059eff26ab891ed0567102b9859eecfb771a82dbedd8de3dbf44a9a2fede70ebe67f096148fb4ef0e3c8f2258eef563fac468bb38185040d6e7552414dc4db0256cba41a2722793a3ccde399f02d768afcb68aeefa322fd491ee2abbe0ca1a547d84cf117fdb1bee037f034a835eec8ddfa54bb30ed14669628/playlist.m3u8`,
+            file: `https://m3u8.justchill.workers.dev/?url=https://gamn.v4322a77e96.site/_v2-xbrr/12a3c523fd105800ed8c394685aeeb0bc22eaa5c1bbbfef50b187baea93ece832257df1a4b6125fcfa38c35da05dee86aad28d46d73fc4e9d4e5a53b1022a18937c011a05b4fec095691a6b03f552e423d78d560531f7493cc99bf5ccda77f917e0fe4101660/h/list;15a38634f803584ba8926411d7bee906856cab0654b5ba.m3u8`,
           }
       ]}
       subtitles={[

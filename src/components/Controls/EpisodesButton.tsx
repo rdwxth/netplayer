@@ -86,7 +86,7 @@ const EpisodesButton = () => {
   useEffect(() => {
     const fetchSeasonsAndEpisodes = async () => {
       try {
-        if (metadata && metadata.tmdbId) {
+        if (metadata && metadata.tmdbId && metadata.type === 'tv') {
           const seasonResponse = await fetch(`https://api.themoviedb.org/3/tv/${metadata.tmdbId}?api_key=f1dd7f2494de60ef4946ea81fd5ebaba&language=en-US`);
           if (!seasonResponse.ok) {
             throw new Error('Failed to fetch TV show details');
