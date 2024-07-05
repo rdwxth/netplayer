@@ -48,7 +48,7 @@ const BackButton = ({ onClick }: { onClick: () => void }) => (
 );
 
 const SeasonsMenu = ({ seasons, onSeasonClick }: { seasons: { season_number: number }[], onSeasonClick: (seasonNumber: number) => void }) => (
-  <NestedMenu style={{ maxHeight: '20rem', overflowY: 'auto' }}>
+  <NestedMenu style={{ maxHeight: '20rem', overflowY: 'auto', backgroundColor: 'rgba(0,0,0,0.9)' }}>
     {seasons.map((season, index) => (
       <SeasonOption
         key={index}
@@ -60,7 +60,7 @@ const SeasonsMenu = ({ seasons, onSeasonClick }: { seasons: { season_number: num
 );
 
 const EpisodesMenu = ({ episodes, onBackClick }: { episodes: { id: number, season_number: number, episode_number: number, name: string, overview: string }[], onBackClick: () => void }) => (
-  <NestedMenu style={{ maxHeight: '20rem', overflowY: 'auto' }}>
+  <NestedMenu style={{ maxHeight: '20rem', overflowY: 'auto', backgroundColor: 'rgba(0,0,0,0.9)' }}>
     <BackButton onClick={onBackClick} />
     {episodes.map((episode, index) => (
       <EpisodeOption
@@ -130,6 +130,10 @@ const EpisodesButton = () => {
 
   if (error) {
     return <div>Error: {error}</div>;
+  }
+
+  if (metadata && metadata.type === 'movie') {
+    return null;
   }
 
   return (
