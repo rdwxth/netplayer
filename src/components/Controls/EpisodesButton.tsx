@@ -138,7 +138,7 @@ const EpisodesButton = () => {
 
   return (
     <React.Fragment>
-      {isMobile && (
+      {metadata && metadata.type === 'tv' && isMobile && (
         <Dialog
           portalSelector={selector}
           reference={
@@ -160,7 +160,7 @@ const EpisodesButton = () => {
           )}
         </Dialog>
       )}
-      {isDesktop && (
+      {metadata && metadata.type === 'tv' && isDesktop && (
         <Popover
           portalSelector={selector}
           reference={
