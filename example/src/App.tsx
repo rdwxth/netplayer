@@ -6,7 +6,7 @@ const App: React.FC = () => {
     <NetPlayer
       sources={[
           {
-            file: `https://m3u8.justchill.workers.dev/?url=https://s.ezwatch.xyz/stream_6670994730c25/uwu.m3u8`,
+            file: `https://hk1.shegu.net/vip/p1/movie_mp4_h264/2024/6/7/64437/movie.64437.2024.1080p.H264.20240723000902.mp4?KEY1=mxEFsNa54VYJgMgDr1upRg&KEY2=1721869102&KEY7=febbox_video_quality_list_v3&KEY8=457955`,
           }
       ]}
       subtitles={[
