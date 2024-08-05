@@ -6,7 +6,7 @@ const App: React.FC = () => {
     <NetPlayer
       sources={[
           {
-            file: `https://hk1.shegu.net/vip/p1/movie_mp4_h264/2024/6/7/64437/movie.64437.2024.1080p.H264.20240723000902.mp4?KEY1=mxEFsNa54VYJgMgDr1upRg&KEY2=1721869102&KEY7=febbox_video_quality_list_v3&KEY8=457955`,
+            file: `https://hls21-eu.zcdn.stream/0e7e28b1a1ea6d306350b303b73cfcbd/2024-07-22/video.m3u8?auth=c7bdf081ccdcb5dac6f47e260cda13de&expires=1722879632&type=edge&node=ttenonaRprj4DwnW-f6rB6S_0EFYBTK_jsxSJ0ZykApzZ_civyVBc8ApBeO2jCIqdOHCmXaUfBvSfc4t5hoEJo2gHi6xBksSnNdKpGDjQkNdeN0npejGE_g9WtxKAkf6hFaiO_VM_2HHVS_he7BnMwl68FCr7-C4zro_sRt2Vy8w6ORNkK0d9aMm2blM4HUMUiW2JMAvPRXXk0ml8oST4g`,
           }
       ]}
       subtitles={[
@@ -19,7 +19,7 @@ const App: React.FC = () => {
       ]}
       metadata = {{
         tmdbId: 108978,
-        type: 'tv',
+        type: 'movie',
         downloads: [{
           file_name: 'Reacher S01E01.mp4',
           download_url: 'https://gamn.vid109d224.site/download.mp4'

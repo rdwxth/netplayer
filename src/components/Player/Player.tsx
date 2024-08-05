@@ -456,6 +456,7 @@ const Player = React.forwardRef<HTMLVideoElement, PlayerProps>(
         preload="auto"
         className={styles.video}
         playsInline
+        crossOrigin='anonymous'
         {...props}
       >
         {children}
