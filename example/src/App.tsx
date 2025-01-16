@@ -7,7 +7,7 @@ const App: React.FC = () => {
     <NetPlayer
       sources={[
         {
-          file: `https://hye1eaipby4w.matham.ws/07_24_23/07/24/14/QT33BVOK/73HIGRVY.mp4/master.m3u8?ha=34372ed379f3152&hc=b2ff02dd3ec507f&hi=6508718e7b99fbb&ht=0eaf442ba4c2a95&hu=0457014d7c5d781&t=1737897796`,
+          file: `https://gralvixfire92.live/file1/FHOYw53Qt7jILuyFBIWikdMj3V2qWEu20K~9U30qnWDm0SdQ3NuWH1I3ErdjaTB3KcJzwN7C64p7JGEcpygR1dwuSx3aAkRvZ2JDVOiYXq034mREnvpacBklBmCw1SKLWnnq1mRhrdnh8zHQt0Y7MPMqtXBa~JOwUdxKOCeuREQ=/MTA4MA==/cGxheWxpc3QubTN1OAo=.m3u8`,
         },
       ]}
       metadata={{

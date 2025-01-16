@@ -248,6 +248,16 @@ const Player = React.forwardRef<HTMLVideoElement, PlayerProps>(
       // eslint-disable-next-line react-hooks/exhaustive-deps
       [sources]
     );
+
+    const handleSourceError = () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentServer = parseInt(urlParams.get('server') || '1', 10);
+      const maxServers = sources.length + 1;
+      const nextServer = currentServer < maxServers ? currentServer + 1 : 1;
+      urlParams.set('server', nextServer.toString());
+      window.location.search = urlParams.toString();
+    };
+
     React.useEffect(() => {
       const _hls = hls.current;
       const source =
@@ -259,10 +269,14 @@ const Player = React.forwardRef<HTMLVideoElement, PlayerProps>(
       if (!shouldPlayHls(source) || sources.length > 1) {
         initQuality();
       }
+      const timeoutId = setTimeout(handleSourceError, 10000); // 10 seconds timeout
+      innerRef.current?.addEventListener('error', handleSourceError);
       return () => {
         if (_hls !== null) {
           _hls.destroy();
         }
+        clearTimeout(timeoutId);
+        innerRef.current?.removeEventListener('error', handleSourceError);
       };
       // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [sources]);

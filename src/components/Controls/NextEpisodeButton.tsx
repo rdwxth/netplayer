@@ -31,11 +31,9 @@ const NextEpisodeButton: React.FC<NextEpisodeButtonProps> = ({ className }) => {
     const handleClick = () => {
         if (nextEpisode && videoEl) {
             const url = new URL(window.location.href);
-            url.searchParams.set('s', nextEpisode.season.toString());
-            url.searchParams.set('e', nextEpisode.episode.toString());
+            url.searchParams.set('season', nextEpisode.season.toString());
+            url.searchParams.set('episode', nextEpisode.episode.toString());
             window.history.pushState({}, '', url.toString());
-            videoEl.src = url.toString();
-            videoEl.play();
             setShowNotification(false);
         }
     };

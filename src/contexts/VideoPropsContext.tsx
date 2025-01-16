@@ -88,6 +88,10 @@ export interface AutoplaySettings {
   timeBeforeEnd: number;
 }
 
+export interface DebugSettings {
+  enabled: boolean;
+}
+
 export interface NetPlayerProps extends PlayerProps {
   thumbnail?: string;
   i18n?: I18n;
@@ -102,6 +106,7 @@ export interface NetPlayerProps extends PlayerProps {
     'currentAudio' | 'currentQuality' | 'currentSubtitle' | 'isSubtitleDisabled'
   >;
   autoplaySettings?: AutoplaySettings;
+  debugSettings?: DebugSettings;
 }
 
 const defaultI18n: I18n = {
@@ -163,6 +168,10 @@ const defaultAutoplaySettings: AutoplaySettings = {
   timeBeforeEnd: 4,
 };
 
+const defaultDebugSettings: DebugSettings = {
+  enabled: false,
+};
+
 const mergeHotkeys = (main: HotKey[], target: HotKey[]) => {
   for (const hotkey of target) {
     const index = main.findIndex((h) => h.hotKey === hotkey.hotKey);
@@ -177,7 +186,7 @@ const mergeHotkeys = (main: HotKey[], target: HotKey[]) => {
 
 export const VideoPropsContext =
   // @ts-ignore
-  React.createContext<Required<NetPlayerProps> & { setAutoplaySettings: React.Dispatch<React.SetStateAction<AutoplaySettings>> }>(null);
+  React.createContext<Required<NetPlayerProps> & { setAutoplaySettings: React.Dispatch<React.SetStateAction<AutoplaySettings>>, setDebugSettings: React.Dispatch<React.SetStateAction<DebugSettings>> }>(null);
 
 export const VideoPropsProvider: React.FC<Partial<NetPlayerProps>> = ({
   children,
@@ -194,9 +203,12 @@ export const VideoPropsProvider: React.FC<Partial<NetPlayerProps>> = ({
   const [autoplaySettings, setAutoplaySettings] = React.useState<AutoplaySettings>(
     props.autoplaySettings || defaultAutoplaySettings
   );
+  const [debugSettings, setDebugSettings] = React.useState<DebugSettings>(
+    props.debugSettings || defaultDebugSettings
+  );
   return (
     // @ts-ignore
-    <VideoPropsContext.Provider value={{ ...props, i18n, hotkeys, autoplaySettings, setAutoplaySettings }}>
+    <VideoPropsContext.Provider value={{ ...props, i18n, hotkeys, autoplaySettings, setAutoplaySettings, debugSettings, setDebugSettings }}>
       {children}
     </VideoPropsContext.Provider>
   );
