@@ -252,7 +252,7 @@ const Player = React.forwardRef<HTMLVideoElement, PlayerProps>(
     const handleSourceError = () => {
       const urlParams = new URLSearchParams(window.location.search);
       const currentServer = parseInt(urlParams.get('server') || '1', 10);
-      const maxServers = sources.length + 1;
+      const maxServers = sources.length;
       const nextServer = currentServer < maxServers ? currentServer + 1 : 1;
       urlParams.set('server', nextServer.toString());
       window.location.search = urlParams.toString();
@@ -269,7 +269,11 @@ const Player = React.forwardRef<HTMLVideoElement, PlayerProps>(
       if (!shouldPlayHls(source) || sources.length > 1) {
         initQuality();
       }
-      const timeoutId = setTimeout(handleSourceError, 10000); // 10 seconds timeout
+      const timeoutId = setTimeout(() => {
+        if (innerRef.current?.error) {
+          handleSourceError();
+        }
+      }, 10000); // 10 seconds timeout
       innerRef.current?.addEventListener('error', handleSourceError);
       return () => {
         if (_hls !== null) {
