@@ -48,6 +48,10 @@ interface I18nSettings extends I18nField {
   uploadSubtitle: string;
   mySubtitle: string;
   serverSwitcher: string;
+  autoplay: string;
+  autoplayOn: string;
+  autoplayOff: string;
+  autoplayTime: string;
 }
 
 type I18nField = { [k: string]: string | I18nField };
@@ -73,6 +77,17 @@ export type Components = {
   MobileControls: React.FC;
 };
 
+export interface Server {
+  name: string;
+  flag: string;
+  onClick: () => void;
+}
+
+export interface AutoplaySettings {
+  enabled: boolean;
+  timeBeforeEnd: number;
+}
+
 export interface NetPlayerProps extends PlayerProps {
   thumbnail?: string;
   i18n?: I18n;
@@ -81,10 +96,12 @@ export interface NetPlayerProps extends PlayerProps {
   subtitles?: Subtitle[];
   components?: Partial<Components>;
   metadata?: Record<string, any>;
+  servers?: Server[];
   defaultVideoState?: Pick<
     VideoState,
     'currentAudio' | 'currentQuality' | 'currentSubtitle' | 'isSubtitleDisabled'
   >;
+  autoplaySettings?: AutoplaySettings;
 }
 
 const defaultI18n: I18n = {
@@ -125,7 +142,11 @@ const defaultI18n: I18n = {
     tooLate: 'Use this if subtitles are shown {{miliseconds}} ms too late',
     uploadSubtitle: 'Upload Subtitle',
     mySubtitle: 'My subtitle',
-    serverSwitcher: 'Servers'
+    serverSwitcher: 'Servers',
+    autoplay: 'Autoplay',
+    autoplayOn: 'Autoplay On',
+    autoplayOff: 'Autoplay Off',
+    autoplayTime: 'Autoplay Time',
   },
 };
 
@@ -136,6 +157,11 @@ const defaultHotKeys: HotKey[] = [
   fullscreenHotKey(),
   volumeHotKey(),
 ];
+
+const defaultAutoplaySettings: AutoplaySettings = {
+  enabled: true,
+  timeBeforeEnd: 4,
+};
 
 const mergeHotkeys = (main: HotKey[], target: HotKey[]) => {
   for (const hotkey of target) {
@@ -151,7 +177,7 @@ const mergeHotkeys = (main: HotKey[], target: HotKey[]) => {
 
 export const VideoPropsContext =
   // @ts-ignore
-  React.createContext<Required<NetPlayerProps>>(null);
+  React.createContext<Required<NetPlayerProps> & { setAutoplaySettings: React.Dispatch<React.SetStateAction<AutoplaySettings>> }>(null);
 
 export const VideoPropsProvider: React.FC<Partial<NetPlayerProps>> = ({
   children,
@@ -165,9 +191,12 @@ export const VideoPropsProvider: React.FC<Partial<NetPlayerProps>> = ({
     () => mergeHotkeys(defaultHotKeys, props.hotkeys || []),
     [props.hotkeys]
   );
+  const [autoplaySettings, setAutoplaySettings] = React.useState<AutoplaySettings>(
+    props.autoplaySettings || defaultAutoplaySettings
+  );
   return (
     // @ts-ignore
-    <VideoPropsContext.Provider value={{ ...props, i18n, hotkeys }}>
+    <VideoPropsContext.Provider value={{ ...props, i18n, hotkeys, autoplaySettings, setAutoplaySettings }}>
       {children}
     </VideoPropsContext.Provider>
   );

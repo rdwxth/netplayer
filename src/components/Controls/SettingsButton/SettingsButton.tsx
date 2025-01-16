@@ -12,6 +12,7 @@ import PlaybackSpeedMenu from './PlaybackSpeedMenu';
 import QualityMenu from './QualityMenu';
 import SubtitleMenu from './SubtitleMenu';
 import ServerSwitcherMenu from './ServerSelectMenu';
+import AutoplaySettings from './AutoplaySettings';
 
 const Menu = React.memo(() => (
   <NestedMenu
@@ -28,6 +29,7 @@ const Menu = React.memo(() => (
     <QualityMenu />
     <SubtitleMenu />
     <AudioMenu />
+    <AutoplaySettings />
   </NestedMenu>
 ));
 

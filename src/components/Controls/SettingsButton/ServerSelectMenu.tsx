@@ -3,27 +3,9 @@ import { useVideoProps } from '../../../contexts/VideoPropsContext';
 import ServerIcon from '../../icons/ServerIcon';
 import NestedMenu from '../../NestedMenu';
 
-let servers = [
-  { name: "Apollo", flag: "🚀" },
-  { name: "Luna", flag: "🌙" },
-  { name: "Nova", flag: "🌟" },
-  { name: "Stella", flag: "⭐" },
-  { name: "Cosmo", flag: "🌌" },
-  { name: "Orion", flag: "🔭" }
-];
-
-
 const ServerSwitcherMenu = () => {
-  const { metadata } = useVideoProps();
-  if (metadata.type === 'tv') {
-    servers = [
-      { name: "Apollo", flag: "🚀" },
-      { name: "Luna", flag: "🌙" }
-    ];
-  } else {
-    console.log(metadata);
-  }
-  const { i18n } = useVideoProps();
+  const { servers, i18n } = useVideoProps();
+
   const getCurrentServer = () => {
     const urlParams = new URLSearchParams(window.location.search);
     const serverIndex = urlParams.get('server');
@@ -32,15 +14,13 @@ const ServerSwitcherMenu = () => {
     }
     return '';
   };
-  
+
   const currentServer = getCurrentServer();
-  
+
   const handleChangeServer = (serverName: string) => {
-    const serverIndex = servers.findIndex(server => server.name === serverName);
-    if (serverIndex !== -1) {
-      const newUrl = new URL(window.location.href);
-      newUrl.searchParams.set('server', String(serverIndex + 1));
-      window.location.href = newUrl.toString();
+    const server = servers.find(server => server.name === serverName);
+    if (server) {
+      server.onClick();
     }
   };
 

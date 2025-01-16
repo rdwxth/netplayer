@@ -11,8 +11,10 @@ export default defineConfig({
     commonjsOptions: { exclude: ['netplayer'], include: [] }
   },
   server: {
+    host: '0.0.0.0', // Listen on all addresses
+    port: 3000, // Specify a port
     watch: {
-      ignored: ['!**/node_modules/netplayer/**']
+      usePolling: true, // Enable polling for hot reloading
     }
   }
 })

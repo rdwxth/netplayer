@@ -29,15 +29,16 @@ const InnerPlayer = React.forwardRef<HTMLVideoElement, NetPlayerProps>(
 
 const NetPlayer = React.forwardRef<HTMLVideoElement, NetPlayerProps>(
   (
-    { sources, subtitles = [], metadata={}, hlsRef = React.createRef(), children, ...props },
+    { sources, subtitles = [], metadata={}, servers=[], hlsRef = React.createRef(), children, ...props },
     ref
   ) => {
     return (
-      <GlobalContext sources={sources} subtitles={subtitles} metadata={metadata} {...props}>
+      <GlobalContext sources={sources} subtitles={subtitles} metadata={metadata} servers={servers} {...props}>
         <InnerPlayer
           sources={sources}
           subtitles={subtitles}
           metadata={metadata}
+          servers={servers}
           hlsRef={hlsRef}
           ref={ref}
           {...props}

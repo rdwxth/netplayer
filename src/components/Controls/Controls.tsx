@@ -14,6 +14,7 @@ import TimeIndicator from './TimeIndicator';
 import VolumeButton from './VolumeButton';
 import DownloadButton from './DownloadButton';
 import EpisodesButton from './EpisodesButton';
+import NextEpisodeButton from './NextEpisodeButton';
 
 const Controls = () => {
   const { isInteracting } = useInteract();
@@ -28,6 +29,7 @@ const Controls = () => {
           styles.hide
       )}
     >
+
       <div className={styles.sliderContainer}>
         <ProgressSlider />
       </div>
@@ -40,6 +42,8 @@ const Controls = () => {
           <TimeIndicator />
         </div>
         <div className={styles.rightButtonContainer}>
+          <NextEpisodeButton />
+
           <DownloadButton />
           <EpisodesButton />
           <SubtitleButton />

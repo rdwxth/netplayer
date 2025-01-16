@@ -156,9 +156,19 @@ const Player = React.forwardRef<HTMLVideoElement, PlayerProps>(
               setState(() => ({
                 audios: modifiedAudios,
                 currentAudio:
-                  modifiedAudios[_hls.audioTrack >= 0 ? _hls.audioTrack : 0]
-                    ?.lang,
+                  modifiedAudios.find((audio) => audio.lang.startsWith('en'))
+                    ?.lang || modifiedAudios[0]?.lang,
               }));
+              console.log(
+                modifiedAudios
+              );
+              // Automatically select the audio track starting with "eng"
+              const engAudioTrackIndex = modifiedAudios.findIndex(
+                (audio) => audio.lang.startsWith('en')
+              );
+              if (engAudioTrackIndex !== -1) {
+                _hls.audioTrack = engAudioTrackIndex;
+              }
             });
             _hls.on(Hls.Events.ERROR, function (event, data) {
               console.log('ERROR:', event, data);
